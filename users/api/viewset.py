@@ -19,9 +19,3 @@ class UserViewSet(ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def retrieve(self, request, *args, **kwargs):
-        return Response({'message': 'METHOD GET IS NOT ALLOWED'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-    def list(self, request, *args, **kwargs):
-        return Response({'message': 'METHOD GET IS NOT ALLOWED'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
