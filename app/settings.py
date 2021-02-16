@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from decouple import config
 from dj_database_url import parse as dburl
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,6 +33,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['kenzieshoes.herokuapp.com', '127.0.0.1', 'localhost:3000']
 
 APPEND_SLASH = True
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
+}
 
 
 # Application definition

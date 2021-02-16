@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from products.api.viewset import ProductViewSet
 from users.api.viewset import UserViewSet
@@ -29,6 +29,6 @@ router.register(r'users', UserViewSet, basename='User')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('sessions/', TokenObtainSlidingView.as_view(), name='token_obtain'),
-    path('refresh-token/', TokenRefreshSlidingView.as_view(), name='token_refresh')
+    path('sessions/', TokenObtainPairView.as_view(), name='token_obtain'),
+    path('refresh-token/', TokenRefreshView.as_view(), name='token_refresh')
 ]
